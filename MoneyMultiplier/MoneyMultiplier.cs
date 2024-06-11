@@ -14,7 +14,7 @@ namespace MoneyMultiplier
         public const string PluginGUID = PluginAuthor + "." + PluginName;
         public const string PluginAuthor = "Arch1t3ct";
         public const string PluginName = "MoneyMultiplier";
-        public const string PluginVersion = "1.0.0";
+        public const string PluginVersion = "1.0.1";
 
 
         private static ConfigEntry<float> MultiplierConfig { get; set; }
@@ -58,7 +58,7 @@ namespace MoneyMultiplier
         private static void SetMoneyMultiplier(ConCommandArgs args)
         {
             args.CheckArgumentCount(1);
-            if (int.TryParse(args[0], out var newMultiplier))
+            if (float.TryParse(args[0], out var newMultiplier))
             {
                 MultiplierConfig.Value = newMultiplier;
                 Debug.Log($"Money Multiplier set to {MultiplierConfig.Value}");
